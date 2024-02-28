@@ -1,0 +1,106 @@
+public class Programa {    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            ArrayList<Forma> formasList = new ArrayList<>();
+    
+            while (true) {
+                System.out.println("Menu:");
+                System.out.println("1. Cadastrar uma forma");
+                System.out.println("2. Mostrar descrição textual de todas as formas cadastradas");
+                System.out.println("3. Mostrar área das formas bidimensionais cadastradas");
+                System.out.println("4. Mostrar volume das formas tridimensionais cadastradas");
+                System.out.println("5. Verificar no vetor se existem duas esferas ou dois círculos que se interceptam ou não");
+                System.out.println("0. Sair");
+    
+                int escolha = scanner.nextInt();
+                scanner.nextLine();  
+    
+                switch (escolha) {
+                    case 1:
+                        cadastrarForma(scanner, formasList);
+                        break;
+                    case 2:
+                        mostrarDescricoes(formasList);
+                        break;
+                    case 3:
+                        mostrarAreasBidimensionais(formasList);
+                        break;
+                    case 4:
+                        mostrarVolumesTridimensionais(formasList);
+                        break;
+                    case 5:
+                        verificarInterseccao(formasList);
+                        break;
+                    case 0:
+                        System.out.println("Encerrando o programa.");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Tente novamente.");
+                        break;
+                }
+            }
+        }
+    
+        private static void cadastrarForma(Scanner scanner, ArrayList<Forma> formasList) {
+            System.out.println("Escolha o tipo de forma (1. Circulo, 2. Quadrado):");
+            int tipoForma = scanner.nextInt();
+            scanner.nextLine();  
+    
+            System.out.println("Digite o identificador:");
+            String identificador = scanner.nextLine();
+    
+            System.out.println("Digite a cor:");
+            String cor = scanner.nextLine();
+    
+            System.out.println("Digite a coordenada X do centro:");
+            double centroX = scanner.nextDouble();
+    
+            System.out.println("Digite a coordenada Y do centro:");
+            double centroY = scanner.nextDouble();
+    
+            Forma novaForma = null;
+    
+            if (tipoForma == 1) {
+                System.out.println("Digite o raio do círculo:");
+                double raio = scanner.nextDouble();
+                novaForma = new Circulo(identificador, cor, centroX, centroY, raio);
+            } else if (tipoForma == 2) {
+                System.out.println("Digite o lado do quadrado:");
+                double lado = scanner.nextDouble();
+                novaForma = new Quadrado(identificador, cor, centroX, centroY, lado);
+            } else {
+                System.out.println("Tipo de forma inválido.");
+                return;
+            }
+    
+            formasList.add(novaForma);
+            System.out.println("Forma cadastrada com sucesso!");
+        }
+    
+        private static void mostrarDescricoes(ArrayList<Forma> formasList) {
+            for (Forma forma : formasList) {
+                System.out.println(forma);
+            }
+        }
+    
+        private static void mostrarAreasBidimensionais(ArrayList<Forma> formasList) {
+            for (Forma forma : formasList) {
+                if (forma instanceof Circulo || forma instanceof Quadrado) {
+                    System.out.println("Área de " + forma.identificador + ": " + forma.obterArea());
+                }
+            }
+        }
+    
+        private static void mostrarVolumesTridimensionais(ArrayList<Forma> formasList) {
+            for (Forma forma : formasList) {
+                if (!(forma instanceof Circulo || forma instanceof Quadrado)) {
+                    System.out.println("Volume de " + forma.identificador + ": " + forma.obterVolume());
+                }
+            }
+        }
+    
+        private static void verificarInterseccao(ArrayList<Forma> formasList) {
+            
+        }
+    }
