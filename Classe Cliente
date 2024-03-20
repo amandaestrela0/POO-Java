@@ -8,26 +8,29 @@ public class Cliente {
     private String nome;
     private String email;
     private String senha;
-    private List <Viagem> historicoviagens; //Viagem aparece com uma linha vermelha pq n tem a classe  main ainda. 
-    private List <String> preferenciasviagens;
+    private List <Viagem> historicoViagens; //Viagem aparece com uma linha vermelha pq n tem a classe  main ainda. 
+    private List <String> preferenciasViagens;
 
 
     public Cliente(String nome, String email, String senha){
         this.nome = nome;
         this.email= email;
         this.senha = senha;
-        this.historicoviagens = new ArrayList<>();
-        this.preferenciasviagens = new ArrayList<>();
+        this.historicoViagens = new ArrayList<>();
+        this.preferenciasViagens = new ArrayList<>();
     }
 
 // Metódos responsáveis 
     
-    public void cadastrar(Cliente cliente){
-//
-
+    public static Cliente cadastrarCliente(String nome, String email, String senha){
+        return new Cliente( nome, email, senha);
     }
-    public void atualizarPerfil(Cliente cliente){
-//
+
+    public void editar(String novoNome,String novaSenha, List<Viagem> novohistoricoViagens, List<String> novaspreferenciadViagens){
+        this.nome = novoNome;
+        this.senha= novaSenha;
+        this.historicoViagens = novohistoricoViagens;
+        this.preferenciasViagens = novaspreferenciadViagens;
     }
 
     public void relatorioViagens() {
@@ -35,7 +38,7 @@ public class Cliente {
     for (Viagem viagem : historicoViagens) {
         System.out.println("Data: " + viagem.getData());
         System.out.println("Destino: " + viagem.getDestino());
-        System.out.println("Hospedagem: " + viagem.getHospedagem());
+        System.out.println("Hospedagem: " + viagem.getHospedagem().getNomehotel());
         System.out.println("Atividades:");
         for (String atividade : viagem.getAtividades()) {
             System.out.println("- " + atividade);
@@ -46,7 +49,6 @@ public class Cliente {
 }
 
 //GET E SET
-
 
 public String getNome() {
     return nome;
