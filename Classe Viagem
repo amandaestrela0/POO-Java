@@ -1,16 +1,66 @@
 import java.util.List;
 
 class Viagem {
-    private String data;
     private String destino;
+    private int data;
     private String hospedagem;
     private List<String> atividades;
     private String feedback;
 
-    public Viagem(String data, String destino, String hospedagem, List<String> atividades, String feedback) {
+    public Viagem(int data, String destino, String hospedagem, List<String> atividades, String feedback) {
         this.data = data;
         this.destino = destino;
         this.hospedagem = hospedagem;
         this.atividades = atividades;
         this.feedback = feedback;
     }
+
+    // Get e Set
+    
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public String getHospedagem() {
+        return hospedagem;
+    }
+
+    public void setHospedagem(String hospedagem) {
+        this.hospedagem = hospedagem;
+    }
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+    public List<String> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(List<String> atividades) {
+        this.atividades = atividades;
+    }
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+
+}
+
+
+
+
+
+
+
+
