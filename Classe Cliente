@@ -1,0 +1,92 @@
+import java.util.List;
+import java.util.ArrayList;
+
+//Atributos na classe Cliente nome, email, senha, historico das viagens, preferencias de viagens.
+
+public class Cliente {
+
+    private String nome;
+    private String email;
+    private String senha;
+    private List <Viagem> historicoviagens; //Viagem aparece com uma linha vermelha pq n tem a classe  main ainda. 
+    private List <String> preferenciasviagens;
+
+
+    public Cliente(String nome, String email, String senha){
+        this.nome = nome;
+        this.email= email;
+        this.senha = senha;
+        this.historicoviagens = new ArrayList<>();
+        this.preferenciasviagens = new ArrayList<>();
+    }
+
+// Metódos responsáveis 
+    
+    public void cadastrar(Cliente cliente){
+//
+
+    }
+    public void atualizarPerfil(Cliente cliente){
+//
+    }
+
+    public void relatorioViagens() {
+    System.out.println("Histórico de viagens do cliente " + nome + ":");
+    for (Viagem viagem : historicoViagens) {
+        System.out.println("Data: " + viagem.getData());
+        System.out.println("Destino: " + viagem.getDestino());
+        System.out.println("Hospedagem: " + viagem.getHospedagem());
+        System.out.println("Atividades:");
+        for (String atividade : viagem.getAtividades()) {
+            System.out.println("- " + atividade);
+        }
+        System.out.println("Feedback: " + viagem.getFeedback());
+        System.out.println();
+    }
+}
+
+//GET E SET
+
+
+public String getNome() {
+    return nome;
+}
+
+public void setNome(String nome) {
+    this.nome = nome;
+}
+
+public String getEmail() {
+    return email;
+}
+
+public void setEmail(String email) {
+    this.email = email;
+}
+
+public String getSenha() {
+    return senha;
+}
+
+public void setSenha(String senha) {
+    this.senha = senha;
+}
+
+public List<Viagem> getHistoricoViagens() {
+    return historicoViagens;
+}
+
+public void setHistoricoViagens(List<Viagem> historicoViagens) {
+    this.historicoViagens = historicoViagens;
+}
+
+public List<String> getPreferenciasViagens() {
+    return preferenciasViagens;
+}
+
+public void setPreferenciasViagens(List<String> preferenciasViagens) {
+    this.preferenciasViagens = preferenciasViagens;
+}
+
+
+}
