@@ -1,0 +1,16 @@
+import java.util.List;
+
+class Viagem {
+    private String data;
+    private String destino;
+    private String hospedagem;
+    private List<String> atividades;
+    private String feedback;
+
+    public Viagem(String data, String destino, String hospedagem, List<String> atividades, String feedback) {
+        this.data = data;
+        this.destino = destino;
+        this.hospedagem = hospedagem;
+        this.atividades = atividades;
+        this.feedback = feedback;
+    }
